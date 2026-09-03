@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chill With Fun Pi App</title>
+<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+<style>
+body{margin:0;font-family:sans-serif;background:#0f172a;color:#fff;text-align:center;padding:30px}
+h1{color:#fbbf24}
+.card{background:#1e293b;padding:20px;border-radius:15px;margin:20px 0}
+button{padding:12px 24px;background:#fbbf24;color:#000;border:0;border-radius:8px;font-weight:bold;font-size:16px}
+</style>
+</head>
+<body>
+<h1>🌴 Chill With Fun Pi App</h1>
+<p>Uganda's Chill, Fun & Charity Hub on Pi Network</p>
+
+<div class="card">
+<h3>Welcome Pioneer!</h3>
+<p id="user">Not logged in</p>
+<button onclick="login()">Login with Pi</button>
+</div>
+
+<div class="card">
+<h3>🎮 Chill Zone</h3>
+<p>Relax, play, and earn Pi rewards!</p>
+<button onclick="alert('Chill Games Coming Soon!')">Play Games</button>
+</div>
+
+<div class="card">
+<h3>❤️ Charity Pool - Uganda</h3>
+<p>Support local community projects</p>
+<button onclick="alert('Charity donations coming soon!')">Donate Pi</button>
+</div>
+
+<script>
+Pi.init({version:"2.0"});
+async function login(){
+ try{
+  const auth = await Pi.authenticate(['username']);
+  document.getElementById('user').innerText = "Hello, " + auth.user.username + "!";
+ }catch(e){ alert("Login failed: "+e) }
+}
+</script>
+</body>
+</html>
